@@ -1,7 +1,7 @@
-FROM quay.io/honestbee/alpinebase:3.4
+FROM quay.io/honestbee/alpinebase:3.5
 
-ENV RUBY_VERSION 2.3.1-r0
-ENV BUNDLER_VERSION 1.12.5-r0
+ENV RUBY_VERSION 2.3.3-r0
+ENV BUNDLER_VERSION 1.15.1-r0
 
 RUN apk -U add \
     ruby=$RUBY_VERSION \
