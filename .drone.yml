@@ -2,6 +2,8 @@ pipeline:
   notify:
     image: plugins/slack
     webhook: ${SLACK_WEBHOOK}
-    user: tuan.nguyen
+    secrets:
+    - slack_webhook
+    channel: feed-devops
     when:
       status: [ success, failure ]
