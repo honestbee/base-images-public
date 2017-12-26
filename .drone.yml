@@ -1,12 +1,4 @@
 pipeline:
-  multi-build:
-    image: quay.io/tuannvm/drone-docker-publish:latest
-    organization: tuannvm
-    pull: true
-    privileged: true
-    when:
-      branch: [master]
-
   notify:
     image: plugins/slack
     webhook: ${SLACK_WEBHOOK}
