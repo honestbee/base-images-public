@@ -17,6 +17,8 @@ FROM golang:1.9-alpine
 RUN set -ex \
   && apk add --no-cache bash ca-certificates git curl
 
+RUN curl -fsSL -o /usr/local/bin/dep https://github.com/golang/dep/releases/download/v${DEP_VERSION}/dep-linux-amd64 && chmod +x /usr/local/bin/dep
+
 RUN go get github.com/mitchellh/gox
 COPY --from=builder /go/src/mbt/build/mbt_linux_x86_64 $GOPATH/bin/mbt
 
