@@ -14,6 +14,9 @@ RUN set -ex \
   && make build
 
 FROM golang:1.9-alpine
+
+ENV DEP_VERSION=0.4.1
+
 RUN set -ex \
   && apk add --no-cache bash ca-certificates git curl
 
