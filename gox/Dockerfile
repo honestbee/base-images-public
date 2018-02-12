@@ -18,9 +18,6 @@ RUN set -ex \
   && apk add --no-cache bash ca-certificates git curl
 
 RUN go get github.com/mitchellh/gox
-# && curl -L -o $GOPATH/bin/mbt "https://bintray.com/buddyspike/bin/download_file?file_path=0.10.0%2Fmbt_linux_x86_64" \
-# && chmod +x $GOPATH/bin/mbt
-
 COPY --from=builder /go/src/mbt/build/mbt_linux_x86_64 $GOPATH/bin/mbt
 
 CMD gox
