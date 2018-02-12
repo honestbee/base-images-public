@@ -20,4 +20,4 @@ RUN set -ex \
 RUN go get github.com/mitchellh/gox
 COPY --from=builder /go/src/mbt/build/mbt_linux_x86_64 $GOPATH/bin/mbt
 
-CMD gox
+CMD bash
