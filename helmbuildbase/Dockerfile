@@ -1,8 +1,11 @@
-FROM alpine:3.6
-ENV HELM_VERSION 2.3.1
-RUN apk --update add py-pip bash curl tar && \
-  pip install awscli
-RUN curl -O https://storage.googleapis.com/kubernetes-helm/helm-v${HELM_VERSION}-linux-amd64.tar.gz && \
-  tar -xvf helm-v${HELM_VERSION}-linux-amd64.tar.gz && \
-  cp -rfp linux-amd64/helm /usr/local/bin/ && \
-  rm -rf linux-amd64*
+FROM debian:9-slim
+
+ENV BIN_PATH=/usr/local/bin
+ENV HELM_VERSION=2.8.2
+
+RUN apt-get update && \
+apt-get install git curl iputils-ping dnsutils traceroute -y
+
+RUN curl -L https://storage.googleapis.com/kubernetes-helm/helm-v${HELM_VERSION}-linux-amd64.tar.gz | tar -xzC ${BIN_PATH}/ && \
+  mv $BIN_PATH/linux-amd64/helm $BIN_PATH/ && \
+  rm -rf $BIN_PATH/linux-amd64/
