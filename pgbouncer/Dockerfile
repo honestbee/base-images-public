@@ -7,3 +7,6 @@ RUN apk -U add \
   make \
   openssl \
   curl
+
+COPY hb-entrypoint.sh ./
+ENTRYPOINT ["./hb-entrypoint.sh"]
