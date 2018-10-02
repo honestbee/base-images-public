@@ -7,5 +7,10 @@ AUTH_TYPE="${AUTH_TYPE:-md5}"
 mkdir /etc/pgbouncer
 echo \"$DB_USER\" \"$DB_PASSWORD\" > /etc/pgbouncer/users.txt
 
+# add stats_user
+if [[ ! -z "${STATS_USER}" ]]; then
+  echo \"$STATS_USER\" \"$STATS_USER_PASSWORD\" >> /etc/pgbouncer/users.txt
+fi
+
 # run parent entry point
 ./entrypoint.sh
