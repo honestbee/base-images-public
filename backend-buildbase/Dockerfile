@@ -10,4 +10,5 @@ RUN apt-get update -qq && apt-get install -y \
   libxml2-dev \
   libpq-dev \
   openssl \
+  imagemagick \
   curl
