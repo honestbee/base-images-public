@@ -1,4 +1,4 @@
-FROM ruby:2.3.8-slim-jessie
+FROM swipesense/ruby-jemalloc:2.3-jessie-slim
 
 RUN apt-get update -qq && apt-get install -y \
   git \
